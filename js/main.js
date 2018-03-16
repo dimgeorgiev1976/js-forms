@@ -60,9 +60,12 @@ $(document).ready(function() {
 							$('#submitLoginForm').on('click', formLoginValidation._validateForm );
 
 							   var inputs = $('#loginForm').find('input');
+
+
+						//	loop through each fields
 							   $.each(inputs, function(index, val){
 					var input = $(val);
-					// Hide errors
+					  // Hide errors
 					input.on('focus keydown change', function(){
 						$(".show-error").removeClass('show-error');
 					});	
@@ -94,19 +97,27 @@ var form = $('#loginForm'),
 				} else {
 					console.log('Email is VALID');
 					$(".show-error").removeClass('show-error');
+					//Check password
+					if (password.lenght === 0){
+									// Show errors
+									$('#emptyPassword').addClass('show-error');
+									console.log('Password is empty');
+									valid = false;
+						} else if (email !== validEmail || password !== validPassword) {
+							//Check valid Email and password
+						// Show errors
+						$('.wrongEmailPass').addClass('show-error');
+						console.log('Wrong email or password');
+						valid = false;
+
+						}
+					}
+					if( valid === true ) {
+						console.log('Sending form');
+						form.submit()
+					}
 				}
-
-
-
-				}
-
-
-
-
-
-
-}
-								   
-
-
+				};
+formLoginValidation.init();
+	
 }());
