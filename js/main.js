@@ -45,7 +45,7 @@ $(document).ready(function() {
 
 		formCommentValidation.init();
 	}());
-	});
+	
 							// End Validate comment form
 
 
