@@ -45,7 +45,7 @@ $(document).ready(function() {
 
 		formCommentValidation.init();
 	}());
-	
+
 							// End Validate comment form
 
 
@@ -97,7 +97,7 @@ var form = $('#loginForm'),
 					console.log('Email is VALID');
 					$(".show-error").removeClass('show-error');
 					//Check password
-					if (password.lenght === 0){
+					if (password.lenght === 0) {
 									// Show errors
 									$('#emptyPassword').addClass('show-error');
 									console.log('Password is empty');
@@ -122,18 +122,19 @@ formLoginValidation.init();
 
 }());
 
+
 			(function(){
 				var formRegistrationValidation = {
-					isValid: true;
-					init function(){
+					isValid: true,
+					init: function(){
 						// вызов внутренних функций
 				this._setUpListeners();
 
 					},
 					_setUpListeners: function(){
-						$('#submitRegistrarionValidation').on('click', formRegistrationValidation._validateForm);
-						$each(inputs, function(index, val){
-							var inputs = $(val);
+						$('#submitRegistrarionForm').on('click', formRegistrationValidation._validateForm);
+						$.each(inputs, function(index, val){
+							var input = $(val);
 							// Hide errors
 								input.on('focus keydown change', function(){
 						$(".show-error").removeClass('show-error');
@@ -191,12 +192,4 @@ var form = $('#registrationForm'),
 	}());
 
 });
-
-
-				
-
-
-
-
-				
 
