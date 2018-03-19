@@ -132,10 +132,12 @@ formLoginValidation.init();
 
 					},
 					_setUpListeners: function(){
-						$('#submitRegistrarionForm').on('click', formRegistrationValidation._validateForm);
-						$.each(inputs, function(index, val){
-							var input = $(val);
-							// Hide errors
+				$('#submitRegistrationForm').on('click', formRegistrationValidation._validateForm );
+
+				var inputs = $("#registrationForm").find('input');
+				$.each(inputs, function(index, val){
+					var input = $(val);
+					// Hide errors
 								input.on('focus keydown change', function(){
 						$(".show-error").removeClass('show-error');
 					});	
