@@ -125,16 +125,16 @@ formLoginValidation.init();
 
 			(function(){
 				var formRegistrationValidation = {
-					isValid: true;
-					init function(){
+					isValid: true,
+					init: function(){
 						// вызов внутренних функций
 				this._setUpListeners();
 
 					},
 					_setUpListeners: function(){
-						$('#submitRegistrarionValidation').on('click', formRegistrationValidation._validateForm);
-						$each(inputs, function(index, val){
-							var inputs = $(val);
+						$('#submitRegistrarionForm').on('click', formRegistrationValidation._validateForm);
+						$.each(inputs, function(index, val){
+							var input = $(val);
 							// Hide errors
 								input.on('focus keydown change', function(){
 						$(".show-error").removeClass('show-error');
