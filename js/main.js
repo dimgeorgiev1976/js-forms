@@ -45,7 +45,7 @@ $(document).ready(function() {
 
 		formCommentValidation.init();
 	}());
-	});
+
 							// End Validate comment form
 
 
@@ -94,7 +94,7 @@ var form = $('#loginForm'),
 					console.log('Email is VALID');
 					$(".show-error").removeClass('show-error');
 					//Check password
-					if (password.lenght === 0){
+					if (password.lenght === 0) {
 									// Show errors
 									$('#emptyPassword').addClass('show-error');
 									console.log('Password is empty');
@@ -117,6 +117,7 @@ var form = $('#loginForm'),
 formLoginValidation.init();
 	
 }());
+
 
 			(function(){
 				var formRegistrationValidation = {
@@ -187,11 +188,3 @@ var form = $('#registrationForm'),
 	}());
 
 });
-
-
-				
-
-
-
-
-				
