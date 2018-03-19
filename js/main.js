@@ -60,9 +60,12 @@ $(document).ready(function() {
 							$('#submitLoginForm').on('click', formLoginValidation._validateForm );
 
 							   var inputs = $('#loginForm').find('input');
+
+
+						//	loop through each fields
 							   $.each(inputs, function(index, val){
 					var input = $(val);
-					// Hide errors
+					  // Hide errors
 					input.on('focus keydown change', function(){
 						$(".show-error").removeClass('show-error');
 					});	
@@ -116,6 +119,7 @@ var form = $('#loginForm'),
 				};
 formLoginValidation.init();
 	
+
 }());
 
 
@@ -188,3 +192,4 @@ var form = $('#registrationForm'),
 	}());
 
 });
+
