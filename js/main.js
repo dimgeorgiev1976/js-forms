@@ -44,15 +44,7 @@ $(document).ready(function() {
 	formCommentValidation.init();
 	}());
 // End Validate comment form
-
-
-
-
-
-
-
-
-
+// ...................... Start Login ................................
 	(function(){
 		var formLoginValidation = {
 			isValid: true,
@@ -83,43 +75,28 @@ $(document).ready(function() {
 		pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i,
 		valid = true;
 
-/* .... New Form .......*/
-
-
-	/* .... End New Form .......*/
-
-		if (email.lenght === 0) {
+		if (email.lenght === 0 || !pattern.test(email)) {
 		$("#emptyEmail").addClass("show-error");
-		console.log('Email & Password  Empty');
+		console.log('Email is Empty!');
 		valid = false;
-			} else if ( !pattern.test(email) || password.lenght === 0 ) {
+			} else if ( !pattern.test(email) || email !== validEmail) {
 						// Show errors
 		$(".wrongEmailPass").addClass("show-error");
-						console.log ('Email IS Empty & Pass is Empty');
+						console.log ('Email is not pattern !');
 						valid = false;
 		} else {
-		console.log('Email is Valid  ');
+		console.log('Email is Valid !');
 		$(".show-error").removeClass('show-error'); 
-						
 						//Check Password
-
-			if ( email === validEmail || password.lenght === 0 ) {
+			if ( password.lenght === 0 || password !== validPassword) {
 				$("#emptyPassword").addClass('show-error');
-				console.log(' & Password is Empty');
+				console.log('Password is Empty!');
 				valid = false;
-				} else if (password.lenght !== 0 || password !== validPassword) {
-							
-						$('.wrongEmailPass').addClass('show-error');
-						console.log(' Password  INVALIDE');
-						valid = false;
-
-						 } else if (email === validEmail && password === validPassword) {
-						 		console.log('Email & Password are Valid  ');
-		           $(".show-error").removeClass('show-error'); 
-
-						  
-						// Hide errors
-							}
+			 } else if	(password !== validPassword) {
+				console.log(' Password is Not Valid ! ');
+					$(".wrongEmailPass").addClass('show-error');
+									valid = false;
+									}
 			}
 		if ( valid === true ) {
 		console.log('Sending form');
@@ -129,16 +106,7 @@ $(document).ready(function() {
 		};
 		formLoginValidation.init();
 	}());
-
-
-
-
-
-
-
-
-
-
+// ..............................Start Registration Form........................
 	(function(){
 			var formRegistrationValidation = {
 			isValid: true,
@@ -169,26 +137,19 @@ $(document).ready(function() {
 			valid = true;
 
 			//Check email
-			if ( email.length === 0 ) {
-			// Show errors
-			$("#emptyEmail").addClass("show-error");
-			console.log('Email is empty');
-			valid = false;
-			} else if ( !pattern.test(email)) {
-			// Show errors
-			$("#errorEmail").addClass("show-error");
-			console.log('Email is INVALID');
-			valid = false;
-			} else if ( email === validEmail) { 
-			//Check occupied Email
-			// Show errors
-			$('.wrongEmail').addClass('show-error');
-			console.log("Ocupated Email");
-			valid = false;
-			} else {
-			console.log(" Email is VALID");
-			$('.show-error').removeClass('show-error');
-			//Check password
+			if (email.lenght === 0 || !pattern.test(email)) {
+		$("#emptyEmail").addClass("show-error");
+		console.log('Email is Empty!');
+		valid = false;
+			} else if ( !pattern.test(email) || email !== validEmail) {
+						// Show errors
+		$(".wrongEmailPass").addClass("show-error");
+						console.log ('Email is not pattern !');
+						valid = false;
+		} else {
+		console.log('Email is Valid !');
+		$(".show-error").removeClass('show-error'); 
+						//Check Password
 			if ( password.lenght === 0 ) {
 			// Show errors
 			$("#emptyPassword").addClass('show-error');
